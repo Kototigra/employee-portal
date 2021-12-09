@@ -1,16 +1,59 @@
-<form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+<header class="p-3 mb-3 border-bottom" id='container'>
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      {{!-- <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+          <use xlink:href="#bootstrap" />
+        </svg>
+      </a> --}}
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>
+      </ul>
+
+      <form class="row gy-2 gx-3 align-items-center">
+        <div class="col-auto">
+          <label class="visually-hidden" for="autoSizingInput">Name</label>
+          <input type="search" class="form-control" id="autoSizingInput" placeholder="Find ...">
+        </div>
+        <div class="col-auto">
+          <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+          <select class="form-select" id="autoSizingSelect">
+            <option selected>Choose...</option>
+            <option value="Departments">Departments</option>
+            <option value="Teams">Teams</option>
+            <option value="Roles">Roles</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+      </form>
+
+      <div class="dropdown text-end col-auto ms-3">
+        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+        </a>
+        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><a class="dropdown-item" href="#">Sign out</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</header>
+
+<div style="width: 50%; margin: auto">
+  <table class="table table-striped table-hover">
+    <thead class="text-center fs-4" id="thead">
+    </thead>
+    <tbody class="fs-5" id="tbody"></tbody>
+  </table>
+</div>
+
+
+<script defer src="/js/search.js"></script>
