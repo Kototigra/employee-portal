@@ -11,12 +11,26 @@ select.addEventListener('change', (e) => {
   choose = e.target.value;
 });
 function block(info) {
-  return `<tr id=${info.id}>
+  console.log('choose', choose);
+  if (choose === 'Teams') {
+    return `<tr id=${info.id}>
     <td>${info.first_name} ${info.last_name}</td>
-  </tr>`;
+    <td> ${info.role_title} </td>
+    </tr>`;
+  }
+  return `<tr id=${info.id}>
+  <td>${info.first_name} ${info.last_name}</td>
+</tr>`;
 }
 
 function addTHead(name) {
+  console.log(name);
+  if (choose === 'Teams') {
+    return `<tr>
+    <th scope="col">${name}</th>
+    <th scope="col">Role in Team</th>
+  </tr>`;
+  }
   return `<tr>
     <th scope="col">${name}</th>
   </tr>`;
