@@ -3,6 +3,13 @@ const { Router } = require("express");
 const router = Router();
 const { User, Role, Department, Team } = require("../db/models");
 
+router.get('/logout', (req, res) => {
+  console.log('test------------------------');
+  req.session.destroy();
+  res.clearCookie('auth');
+  res.redirect('/');
+});
+
 router.get("/:id", async (req, res) => {
   const userId = req.params.id;
   const getUserInfo = await User.findOne({ where: { id: userId } });
@@ -26,5 +33,6 @@ router.get('/:id', (req, res) => {
   
   res.render('profile'); // TODO: поменять на HBS ребят слева от нас
 });
+
 
 module.exports = router;
