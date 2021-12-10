@@ -11,6 +11,8 @@ const voc = {
 };
 
 router.get('/', async (req, res) => {
+  // if (!req.session.user) res.redirect('/login');
+
   const dep = await Department.findAll({ raw: true });
   const team = await Team.findAll({ raw: true });
   res.render('index', { dep, team });
