@@ -3,6 +3,8 @@ const select = document.getElementById('autoSizingSelect');
 const searchtext = document.getElementById('autoSizingInput');
 const tbody = document.getElementById('tbody');
 const thead = document.getElementById('thead');
+const department = document.getElementById('dropdown-dep');
+const team = document.getElementById('dropdown-team');
 
 let choose = '';
 select.addEventListener('change', (e) => {
@@ -29,7 +31,6 @@ function addTHead(name) {
     <th scope="col">Role in Team</th>
   </tr>`;
   }
-
   return `<tr>
     <th scope="col">${name}</th>
   </tr>`;
@@ -45,15 +46,13 @@ container.addEventListener('submit', async (e) => {
   };
   const res = await fetch('/search', option);
   const { personsInfo } = await res.json();
-  // console.log(personsInfo);
-  // console.log(personsInfo[0].firstName);
   tbody.innerHTML = '';
   personsInfo.forEach((element) => {
     tbody.insertAdjacentHTML('beforeend', block(element));
   });
   thead.innerHTML = '';
   if (choose) {
-    thead.insertAdjacentHTML('afterbegin', addTHead(searchtext.value)); // поменяла
+    thead.insertAdjacentHTML('afterbegin', addTHead(searchtext.value));
   }
 });
 
@@ -62,5 +61,26 @@ tbody.addEventListener('click', (e) => {
   window.location = `/users/${trId}`;
 });
 
-// если мы ищем отдел, а потом человека - страница не обновляется
-// добавила кнопки с выпадающим меню
+department.addEventListener('click', async (e) => {
+  const depId = e.target.id;
+  const resp = await fetch(`/dep/${depId}`, { method: 'POST' });
+  const info = await resp.json();
+  tbody.innerHTML = '';
+  info.forEach((element) => {
+    tbody.insertAdjacentHTML('beforeend', block(element));
+  });
+  thead.innerHTML = '';
+  thead.insertAdjacentHTML('afterbegin', addTHead(e.target.innerText));
+});
+
+team.addEventListener('click', async (e) => {
+  const teamId = e.target.id;
+  const resp = await fetch(`/team/${teamId}`, { method: 'POST' });
+  const info = await resp.json();
+  tbody.innerHTML = '';
+  info.forEach((element) => {
+    tbody.insertAdjacentHTML('beforeend', block(element));
+  });
+  thead.innerHTML = '';
+  thead.insertAdjacentHTML('afterbegin', addTHead(e.target.innerText));
+});
