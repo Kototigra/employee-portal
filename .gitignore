@@ -106,3 +106,5 @@ dist
 .DS_store
 
 sessions
+
+package-lock.json
