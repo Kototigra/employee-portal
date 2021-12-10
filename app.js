@@ -1,3 +1,4 @@
+require('dotenv').config(); // подключает библиотеку dotenv которая парсит .env файл и добавляет значения из него в локальное окружение сервера
 const express = require('express');
 // const morgan = require('morgan');
 
@@ -10,7 +11,7 @@ const usersRouter = require('./routes/usersRouter');
 // const { userChecker } = require('./middleware/middleware');
 
 const app = express(); // app - экземпляр сервера
-const PORT = 3000;
+// const PORT = 3000;
 
 // Start server settings
 app.set('view engine', 'hbs'); // дает нам право рендерить hbs в res.render()
@@ -52,6 +53,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 // End routes section
 
-app.listen(PORT, () => {
-  console.log(`server started PORT: ${PORT}`);
+app.listen(process.env.PORT ?? 3001, () => {
+  console.log('server started');
 });
+
+// если sequelize-cli не видит подключение к ДБ
+// export DB_CONNECTION=postgres://fox:123@localhost:5432/foxes

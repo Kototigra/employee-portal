@@ -5,6 +5,7 @@ const tbody = document.getElementById('tbody');
 const thead = document.getElementById('thead');
 const department = document.getElementById('dropdown-dep');
 const team = document.getElementById('dropdown-team');
+const profileLink = document.getElementById('profile_link');
 
 let choose = '';
 select.addEventListener('change', (e) => {
@@ -46,6 +47,7 @@ container.addEventListener('submit', async (e) => {
   };
   const res = await fetch('/search', option);
   const { personsInfo } = await res.json();
+  console.log('personsInfo');
   tbody.innerHTML = '';
   personsInfo.forEach((element) => {
     tbody.insertAdjacentHTML('beforeend', block(element));
@@ -83,4 +85,13 @@ team.addEventListener('click', async (e) => {
   });
   thead.innerHTML = '';
   thead.insertAdjacentHTML('afterbegin', addTHead(e.target.innerText));
+});
+
+profileLink.addEventListener('click', async (e) => {
+  e.preventDefault();
+  const result = await fetch('/users/ourProfile', {
+    method: 'POST',
+  });
+  const { ourId } = await result.json();
+  window.location.assign(`/users/${ourId}`);
 });
