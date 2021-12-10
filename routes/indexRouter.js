@@ -23,7 +23,11 @@ router.post('/search', async (req, res) => {
   const input = text.trim();
   if (!choose) {
     const personsInfo = await User.findAll({ where: { last_name: input }, raw: true });
-    res.json({ personsInfo });
+    if (!personsInfo.length) {
+      res.json({});
+    } else {
+      res.json({ personsInfo });
+    }
   } if (choose === 'Teams') {
     console.log('Тест ---------------->', choose);
     const team = await Team.findOne({ where: { title: input } });
