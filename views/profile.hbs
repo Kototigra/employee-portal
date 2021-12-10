@@ -1,0 +1,45 @@
+<div class="container_profile">
+  <h2 class="title title_profile">Привет {{user.name}} </h2>
+
+  <div class="wrapper_profile">
+    <div class="photo_wrapper">
+      <img
+        class="img_profile"
+        src="https://vplate.ru/images/article/orig/2019/02/strizhki-gollivudskih-i-rossijskih-zvezd-2.jpg"
+        alt="photo"
+      />
+    </div>
+
+    {{! <form
+        class="send_photo__profile"
+        action="users/upload"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label>Загрузите фото на сайт</label><br />
+        <input type="file" name="filedata" /><br /><br />
+        <input type="submit" value="Send" />
+      </form>
+    </div> }}
+
+    <div class="text_profile">
+      {{#if getUserInfo}}
+        {{getUserInfo.first_name}}
+        {{getUserInfo.last_name}}
+      {{/if}}:
+      {{#if getDepartmentInfo}}
+        сотрудник отдела
+        {{getDepartmentInfo.title}}{{/if}},
+      {{#if getRoleInfo}} в роли: {{getRoleInfo.title}}{{/if}}.
+
+      {{#if getTeamInfo}}
+        Сейчас работает в команде(ах):
+        {{getTeamInfo.title}}
+      {{/if}}
+      {{#if getUserInfo}}
+        Почта для связи:
+        {{getUserInfo.email}}
+      {{/if}}
+    </div>
+  </div>
+</div>

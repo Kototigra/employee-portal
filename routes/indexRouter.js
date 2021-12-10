@@ -10,7 +10,6 @@ const voc = {
   Roles: Role,
 };
 
-/* GET home page. */
 router.get('/', async (req, res) => {
   const dep = await Department.findAll({ raw: true });
   const team = await Team.findAll({ raw: true });

@@ -1,0 +1,39 @@
+
+
+<div class='container'>
+<h2 class='title'>Чтобы попасть на корпоративный портал, заполните форму авторизации:</h2>
+<form action="/login" method="post" name="authForm" class="auth-form">
+
+  <div class="row">
+    <div class="mb-3 ">
+      <label for="exampleInputEmail1" class="form-label">Введите еmail:</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        name="email"
+      />
+    </div>
+  </div>
+  {{#if message}}
+  <span class="form-err">{{message}}</span>
+   <div id="emailHelp" class="form-text">
+</div>
+{{/if}}
+  <div class="row">
+    <div class="mb-3 ">
+      <label for="exampleInputPassword1" class="form-label">Введите пароль:</label>
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        id="exampleInputPassword1"
+      />
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Войти</button>
+</form>
+</div>
+  </div>
+  
