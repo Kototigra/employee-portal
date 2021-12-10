@@ -22,4 +22,9 @@ router.get("/:id", async (req, res) => {
 //       res.send("Файл загружен");
 // });
 
+router.get('/:id', (req, res) => {
+  
+  res.render('profile'); // TODO: поменять на HBS ребят слева от нас
+});
+
 module.exports = router;
