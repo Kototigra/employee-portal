@@ -23,6 +23,30 @@ router.post('/search', async (req, res) => {
     const personsInfo = await User.findAll({ where: { last_name: input }, raw: true });
     console.log({ personsInfo });
     res.json({ personsInfo });
+  } if (choose === 'Teams') {
+    console.log('Тест ---------------->', choose);
+    const team = await Team.findOne({ where: { title: input } });
+    console.log('ТИМ ИД', team.id);
+    const peoples = await Team.findAll({
+      where: { id: team.id },
+      include: {
+        model: User,
+        include: {
+          model: Role,
+        },
+      },
+
+      raw: true,
+    });
+    // console.log(peoples);
+    const personsInfo = peoples.map((el) => ({
+      id: el['Users.id'],
+      first_name: el['Users.first_name'],
+      last_name: el['Users.last_name'],
+      role_title: el['Users.Role.title'],
+    }));
+    // console.log(personsInfo);
+    res.json({ personsInfo });
   } else {
     const modelName = voc[choose];
     const peoples = await modelName.findAll({
