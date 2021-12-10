@@ -31,17 +31,22 @@ container.addEventListener('submit', async (e) => {
   };
   const res = await fetch('/search', option);
   const { personsInfo } = await res.json();
-  console.log(personsInfo);
+  // console.log(personsInfo);
   // console.log(personsInfo[0].firstName);
   tbody.innerHTML = '';
   personsInfo.forEach((element) => {
     tbody.insertAdjacentHTML('beforeend', block(element));
   });
   thead.innerHTML = '';
-  thead.insertAdjacentHTML('afterbegin', addTHead(choose));
+  if (choose) {
+    thead.insertAdjacentHTML('afterbegin', addTHead(searchtext.value)); // поменяла
+  }
 });
 
 tbody.addEventListener('click', (e) => {
   const trId = e.target.closest('tr').id;
   window.location = `/users/${trId}`;
 });
+
+// если мы ищем отдел, а потом человека - страница не обновляется
+// добавила кнопки с выпадающим меню
