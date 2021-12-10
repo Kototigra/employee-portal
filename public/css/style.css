@@ -80,17 +80,18 @@ profile
   padding: 20px;
   display: flex;
   align-content: center;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 .photo_wrapper {
   width: 400px;
 }
 .img_profile {
-  max-width: 150px;
+  max-width: 250px;
 }
 .text_profile {
   font-weight: 400;
+  font-size: 22px;
   margin-left: 15px;
   padding: 46px;
 }
