@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(Role, { foreignKey: 'role_id' });
       this.belongsTo(Department, { foreignKey: 'department_id' });
-      this.belongsToMany(Team, { through: Relation, foreignKey: 'team_id', anotherKey: 'user_id' });
+      this.belongsToMany(Team, { through: Relation, foreignKey: 'user_id'});
     }
   }
   User.init({
