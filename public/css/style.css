@@ -1,0 +1,145 @@
+body {
+  background-color: hsl(180, 20%, 94%);
+  font-family: "Roboto", sans-serif;
+}
+/*
+auth-form
+*/
+.container {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.title {
+  padding: 30px;
+  width: 50%;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 100;
+}
+.auth-form {
+  padding: 60px;
+  width: 30%;
+  border: 1px solid black;
+  background: #13362f;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.btn_form {
+  background-color: #41ab87;
+  border-color: rgba(255, 255, 255, 0);
+  margin-top: 20px;
+}
+.btn:hover {
+  background-color: #6c757d;
+  border-color: rgba(255, 255, 255, 0);
+  /* color: rgba(255, 255, 255, 0); */
+}
+.form-err {
+  font-size: 13px;
+  color: #f13535;
+}
+
+/*
+profile
+*/
+/* .container_profile {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  font-weight: 100;
+} */
+.header_profile {
+  background: #13362f;
+  display: flex;
+  justify-content: space-between;
+  min-height: 50px;
+  padding: 20px;
+}
+/* .container_profile h2 {
+  padding: 20px;
+  width: 80%;
+  background: #13362f;
+  height: 30px;
+} */
+.btn_profile {
+  /* width: 20%; */
+  margin: 0;
+}
+.title_profile {
+  font-weight: 400;
+  font-size: 20px;
+  color: #eee;
+}
+.wrapper_profile {
+  padding: 20px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+.photo_wrapper {
+  width: 400px;
+}
+.img_profile {
+  max-width: 250px;
+}
+.text_profile {
+  font-weight: 400;
+  font-size: 22px;
+  margin-left: 15px;
+  padding: 46px;
+}
+.send_photo__profile {
+  margin-top: 20px;
+}
+/* index */
+.container_index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container_index .index_div {
+  margin: 0px;
+  padding: 0px;
+  margin: 0 20px 0 20px;
+}
+.btn {
+  padding: 0;
+  width: 150px;
+  height: 30px;
+  background-color: #41ab87;
+  text-align: center;
+  /* margin: 0 auto; */
+}
+.header_index {
+  background-color: #13362f;
+  color: #eee;
+}
+a:hover {
+  text-decoration: none;
+  color: #eee;
+}
+a {
+  text-decoration: none;
+  color: #eee;
+}
+form .btn {
+  padding: 0;
+  border-color: rgba(255, 255, 255, 0);
+}
+
+.table {
+  background-color: rgba(190, 228, 187, 0.1);
+}
+tr:hover {
+  background-color: rgba(196, 238, 191, 0.171);
+}
+.btn-primary {
+  border-color: rgba(255, 255, 255, 0);
+}

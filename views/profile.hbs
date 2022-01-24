@@ -1,0 +1,59 @@
+<div class="container_profile">
+  <header class="header_profile">
+    <div class="title_profile"> Привет {{user.name}} </div>
+
+    <button class="btn_profile btn btn-primary">
+      <a href="/">Назад</a>
+    </button>
+  </header>
+
+  <div class="wrapper_profile">
+    <div class="photo_wrapper">
+      <img class="img_profile"
+        src="https://vplate.ru/images/article/orig/2019/02/strizhki-gollivudskih-i-rossijskih-zvezd-2.jpg"
+        alt="photo" />
+    </div>
+
+    {{! <form class="send_photo__profile" action="users/upload" method="post" enctype="multipart/form-data">
+      <label>Загрузите фото на сайт</label><br />
+      <input class="btn btn-primary" type="file" name="filedata" /><br /><br />
+      <input class="btn btn-primary" type="submit" value="Send" />
+
+    </form>
+  </div> }}
+
+  <div class="text_profile">
+
+    {{#if getUserInfo}}
+    <p>Информация о сотруднике</p>
+    <p>ФИО: {{getUserInfo.first_name}}
+      {{getUserInfo.last_name}}
+      {{/if}}
+    </p>
+    {{#if getDepartmentInfo}}
+    <p>
+      Отдел: {{getDepartmentInfo.title}}
+      {{/if}}</p>
+
+    <p>
+      {{#if getRoleInfo}}
+      Должность: {{getRoleInfo.title}}
+      {{/if}}
+    </p>
+
+    <p>
+      {{#if getTeamInfo}}
+      Команда: {{getTeamInfo.title}}
+      {{/if}}
+    </p>
+
+    <p>
+      {{#if getUserInfo}}
+      Почта для связи:
+      {{getUserInfo.email}}
+      {{/if}}
+    <p>
+
+  </div>
+</div>
+</div>
